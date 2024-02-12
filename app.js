@@ -16,7 +16,7 @@ const NotFoundError = require('./errors/not-found-err');
 const {
   NODE_ENV,
   PORT = 3000,
-  ORIGIN = 'http://localhost:3000',
+  ORIGIN = 'http://localhost:3001',
   MONGO_URI,
 } = process.env;
 

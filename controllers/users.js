@@ -80,6 +80,7 @@ module.exports.login = (req, res, next) => {
   const { email, password } = req.body;
   return User.findUserByCredentials(email, password)
     .then((user) => {
+      console.log('USER', user);
       /// создадим токен
       const token = jwt.sign(
         { _id: user._id },
@@ -93,7 +94,7 @@ module.exports.login = (req, res, next) => {
         // domain: 'nomoredomainsicu.ru',
         secure: true,
       });
-      response.send({ token });
+      response.send({ token, name: user.name, email: user.email });
     })
     .catch(next);
 };
